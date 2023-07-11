@@ -1,0 +1,143 @@
+{
+    "1": {
+        "file": "test1.sol",
+        "run": true
+    },
+    "2": {
+        "file": "test2.sol",
+        "run": false,
+        "desc": "test case 2"        
+    },
+    "5": {
+        "d": true,
+        "desc": "verbose test"
+    },
+    "6": {
+        "d": true,
+        "f": "testing.sol",
+        "desc": "testing case",
+        "mock": 0,
+        "inlang": "english",
+        "outlang": "spanish",
+        "inaudio": 0,
+        "outaudio": 0,
+        "openaimodel": "gpt-3.5-turbo",
+        "openaitemp": 0.5,
+        "openaitokens": 100
+    },
+    "7": {
+        "d": true,
+        "e": true,
+        "r": true,
+        "mock": 1,
+        "file": "sol.sol"
+    },
+    "8": {
+        "d": true,
+        "mock": 0,
+        "quest": "what is the fundamental theorem of algebra",
+        "desc": "test true sol",
+        "file": "sol.sol"
+    },
+    "9": {
+        "debug": true,
+        "mock": 1,
+        "inlang": "spanish",
+        "outlang": "english",
+        "rate": 2.0,
+        "openaimodel": "gpt-3.5-turbo",
+        "openaitemp": 0.5,
+        "openaitokens": 100,
+        "file": "sol.sol"
+    },
+    "11": {
+        "d": true,
+        "file": "scoach.sol",
+        "mock": 1,
+        "desc": "coach for applicant to job at UN"
+    },
+    "31": {
+        "d": true,
+        "mock": 1,
+        "inaudio": 0,
+        "outaudio": 0,
+        "openaimodel": "gpt-3.5-turbo",
+        "openaitemp": 0.5,
+        "openaitokens": 500,
+        "file": "snamer.sol",
+        "desc": "coach for applicant to job at UN"
+    },
+    "41": {
+        "d": true,
+        "mock": 0,
+        "openaimodel": "gpt-3.5-turbo",
+        "openaitemp": 0.5,
+        "openaitokens": 500,
+        "file": "snamer.sol",
+        "desc": "coach for applicant to job at UN"
+    },
+    "51": {
+        "d": true,
+        "mock": 1,
+        "inaudio": 0,
+        "file": "shrmer.sol",
+        "desc": "shrmer is a human resource manager to talk to"
+    },
+    "71": {
+        "d": true,
+        "mock": 1,
+        "file": "whisol.sol"
+    },
+    "91": {
+        "d": true,
+        "mock": 1,
+        "file": "transol.sol"
+    },
+    "92": {
+        "d": true,
+        "mock": 1,
+        "switch": 0,
+        "file": "transol.sol",
+        "desc": "translate with switched langs"
+    },
+    "93": {
+        "d": true,
+        "mock": 1,
+        "inlang": "english",
+        "outlang": "spanish",
+        "switch": 0,
+        "file": "transol.sol",
+        "desc": "translate from inlang to outlang. no mock"
+    },
+    "104": {
+        "d": true,
+        "mock": 0,
+        "inlang": "english",
+        "outlang": "spanish",
+        "switch": 0,
+        "file": "transol.sol",
+        "desc": "translate from inlang to outlang. no mock"
+    },
+    "106": {
+        "d": true,
+        "mock": 0,
+        "outaudio": 0,
+        "inlang": "english",
+        "outlang": "spanish",
+        "switch": 0,
+        "file": "transol.sol",
+        "desc": "translate from inlang to outlang. no mock"
+    },
+    "124": {
+        "d": true,
+        "inlang": "spanish",
+        "outlang": "english",
+        "outaudio": 0,
+        "rate": 2.0,
+        "mock": 0,
+        "openaimodel": "gpt-3.5-turbo",
+        "openaitemp": 0.5,
+        "openaitokens": 500,
+        "file": "sol.sol"
+    }
+}
