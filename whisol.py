@@ -1,4 +1,4 @@
-# ________DEBUG________
+# ________DEBUG
 Text = 1
 import os
 debug = os.environ.get('debug', Text)
@@ -14,21 +14,21 @@ if debug == 1:
     print(f"DEBUG.debug:  {debug}")
 
 
-# ________DESCRIPTION________
+# ________DESCRIPTION
 Text = "translate inlang to outlang eg: \n python sol.py -t -r -e -m whisol.sol"
 description = Text
 if debug == 1:
     print(f"DESCRIPTION:  {description}")
 
 
-# ________CONTROL ________
+# ________CONTROL 
 Text = 1
 control = Text
 if debug == 1:
     print(f"CONTROL.control:  {control}")
 
 
-# ________CODES________
+# ________CODES
 
 Text = "sk-"
 import os
@@ -75,7 +75,7 @@ if isinstance(XI_API_KEY, str):
         XI_API_KEY = XI_API_KEY.lower() == 'true'
 
 
-# ________LANGS________
+# ________LANGS
 
 Text = "spanish"
 import os
@@ -106,7 +106,7 @@ if debug == 1:
     print(f"LANGS.outlang:  {outlang}")
 
 
-# ________MOCK________
+# ________MOCK
 
 Text = 0
 import os
@@ -128,21 +128,49 @@ if debug == 1:
     print(f"MOCK.mockResponse:  {mockResponse}")
 
 
-# ________QUESTION________
+# ________QUESTION
 
 Text = "Where is Rachael Tyrell ?"
 defaultQuestion = Text
 
-# if questionOnMic, ask user for question on mic
-Text = 1
-questionOnMic = Text
-
 if debug == 1:
     print(f"QUESTION.defaultQuestion:  {defaultQuestion}")
-    print(f"QUESTION.questionOnMic:  {questionOnMic}")
 
 
-# ________ELEVEN ________
+
+# ________AUDIO
+
+Text = 0
+import os
+outaudio = os.environ.get('outaudio', Text)
+if isinstance(outaudio, str):
+    if outaudio.isdigit():
+        outaudio = int(outaudio)
+    elif outaudio.replace('.', '', 1).isdigit() and outaudio.count('.') < 2:
+        outaudio = float(outaudio)
+    elif outaudio.lower() in ['true', 'false']:
+        outaudio = outaudio.lower() == 'true'
+
+
+Text = 1
+import os
+inaudio = os.environ.get('inaudio', Text)
+if isinstance(inaudio, str):
+    if inaudio.isdigit():
+        inaudio = int(inaudio)
+    elif inaudio.replace('.', '', 1).isdigit() and inaudio.count('.') < 2:
+        inaudio = float(inaudio)
+    elif inaudio.lower() in ['true', 'false']:
+        inaudio = inaudio.lower() == 'true'
+
+
+if debug == 1:
+    print(f"AUDIO.outaudio:  {outaudio}")
+    print(f"AUDIO.inaudio:  {inaudio}")
+
+
+
+# ________ELEVEN 
 
 Text = ""
 XI_VOICE_ID = Text
@@ -181,11 +209,11 @@ if debug == 1:
     print(f"ELEVEN.XI_VOICE_ID:  {XI_VOICE_ID}")
 
 
-# ________RECORD________
+# ________RECORD
 
-# if questionOnMic, get audioFile with recorded user question
+# if inaudio, get audioFile with recorded user question
 
-if questionOnMic == 1:
+if inaudio == 1:
     import sounddevice as sd
     import numpy as np
     import time
@@ -214,18 +242,18 @@ if questionOnMic == 1:
 
     audioFile = Recorded_Audio
 
+    if debug == 1:
+        print(f"RECORD.audioFile:  {audioFile}")
+    
 
-if debug == 1:
-    print(f"RECORD.audioFile:  {audioFile}")
 
-
-# ________WHISPER get transliteration________
+# ________WHISPER get transliteration
 
 # initialize scribedText with defaultQuestion
 scribedText = defaultQuestion
 
 # if recorded question, transliterate voice from audioFile
-if questionOnMic == 1:
+if inaudio == 1:
 
     url = f"https://api.openai.com/v1/audio/transcriptions"
 
@@ -268,7 +296,7 @@ if debug == 1:
 
 
 
-# ________OPENAI respond________
+# ________OPENAI respond
 
 # initialize userQuery with scribedText
 userQuery = scribedText
@@ -335,7 +363,7 @@ if debug == 1:
     print(f"OPENAI.response:  {response}")
 
  
-# ________ELEVEN speak scribed________
+# ________ELEVEN speak scribed
 
 # initializa XI_TEXT with openai response
 XI_TEXT = response
@@ -344,7 +372,7 @@ if debug == 1:
 
 
 # if we have found a voice id from the voice name
-if XI_VOICE_ID:
+if outaudio:
 
     TEXT = {
             "text": XI_TEXT,
@@ -429,6 +457,6 @@ if XI_VOICE_ID:
 
 
 else:
-    print(f"{XI_VOICE_NAME}  is not recognized as a XI voice")
+    print(f"{XI_TEXT}")
 
 

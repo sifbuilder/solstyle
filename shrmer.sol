@@ -196,6 +196,7 @@ Comment ________REQUEST
 
 Text = "this is a mock response to question " + usrQuest
 Set_variable assistantResponse to Text
+
 If control is 1
     Text = {
         "model": "gpt-3.5-turbo",
@@ -232,7 +233,7 @@ If control is 1
     
 End_If
 If debug is 1
-    Show "REQUEST.assistantResponse: " assistantResponse"
+    Show "REQUEST.assistantResponse: " assistantResponse
 End_If
 
 Comment ________RESPONSE 

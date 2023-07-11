@@ -216,6 +216,8 @@ If debug is 1
     Show "REQUEST.openaitemp " openaitemp
 End_If 
 
+Set_variable assistantResponse to mockResponse
+
 If control is 1
     Text = {
         "model": openaimodel,
@@ -236,10 +238,7 @@ If control is 1
     Set_variable url to "https://api.openai.com/v1/chat/completions"
     
 
-    
-    If mock is 1
-        Set_variable assistantResponse to mockResponse
-    Otherwise
+    If mock is 0
         Contents_of_URL = Get_contents_of url ({Method: POST, Headers: headers, json: body})
 
         If debug is 1
@@ -252,7 +251,7 @@ If control is 1
     End_If  
 End_If
 If debug is 1
-    Show "REQUEST.assistantResponse: " assistantResponse"
+    Show "REQUEST.assistantResponse: " assistantResponse
 End_If
 
 # ________RESPONSE________ 
@@ -287,7 +286,7 @@ If control is 1
         Show "SAVE_NOTES.List: " List
     End_If
 
-    List = List[roler, Response]
+    List = List[roler, assistantResponse]
     Combined_Text = Combine List with New_Lines
     Create_note_with Combined_Text in Responses
     If debug is 1

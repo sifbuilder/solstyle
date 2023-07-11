@@ -52,47 +52,52 @@
     },
     "11": {
         "d": true,
+        "inaudio": 0,
+        "outaudio": 0,        
         "file": "scoach.sol",
         "mock": 1,
         "desc": "coach for applicant to job at UN"
     },
-    "31": {
+    "12": {
         "d": true,
+        "file": "snamer.sol",
         "mock": 1,
         "inaudio": 0,
         "outaudio": 0,
-        "openaimodel": "gpt-3.5-turbo",
-        "openaitemp": 0.5,
-        "openaitokens": 500,
-        "file": "snamer.sol",
-        "desc": "coach for applicant to job at UN"
+        "desc": "propose names for new apps"
     },
-    "41": {
+    "13": {
         "d": true,
-        "mock": 0,
-        "openaimodel": "gpt-3.5-turbo",
-        "openaitemp": 0.5,
-        "openaitokens": 500,
-        "file": "snamer.sol",
-        "desc": "coach for applicant to job at UN"
+        "file": "shrmer.sol",
+        "mock": 1,
+        "inaudio": 0,
+        "outaudio": 0,
+        "desc": "shrmer is a human resource manager to talk to"
     },
-    "51": {
+    "14": {
+        "d": true,
+        "mock": 1,
+        "file": "whisol.sol",
+        "inaudio": 0,
+        "outaudio": 0,        
+        "desc": "whisper, openai, eleven chatter"
+    },
+    "15": {
         "d": true,
         "mock": 1,
         "inaudio": 0,
-        "file": "shrmer.sol",
-        "desc": "shrmer is a human resource manager to talk to"
+        "outaudio": 0,           
+        "file": "transol.sol",
+        "desc": "whisper, openai, eleven chatter translator"
     },
-    "71": {
+    "16": {
         "d": true,
         "mock": 1,
-        "file": "whisol.sol"
-    },
-    "91": {
-        "d": true,
-        "mock": 1,
-        "file": "transol.sol"
-    },
+        "inaudio": 0,
+        "outaudio": 0,           
+        "file": "sol.sol",
+        "desc": "solstyle"
+    },    
     "92": {
         "d": true,
         "mock": 1,

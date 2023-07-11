@@ -5,9 +5,15 @@ Solstyle is an application that converts solstyle code into Python code. Solstyl
 ## Features
 - Converts apple shortcuts actions pseudocode into operatonal python code
 - Supports various function categories, including variable naming, control flow, comments, and more
-- Easy to integrate into your existing development workflow
 
 ## Installation
 To install Solstyle, follow these steps:
 
 1. Clone the Solstyl repository:
+
+    python solstyle.py -d -p -r -e -c 11
+    python solstyle.py -d -p -r -e -c 12
+    python solstyle.py -d -p -r -e -c 13
+    python solstyle.py -d -p -r -e -c 14
+    python solstyle.py -d -p -r -e -c 15
+    python solstyle.py -d -p -r -e -c 16

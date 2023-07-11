@@ -461,10 +461,6 @@ If control is 1
         "Content-Type": "application/json"
     }
     Set_variable headers to Dictionary  
-    If debug is 1
-        Show "REQUEST.headers " headers
-    End_If 
-
 
     Set_variable url to "https://api.openai.com/v1/chat/completions"
 

@@ -1,25 +1,25 @@
-# ________DEBUG________
+# ________DEBUG
 Text = 1
 Set_variable debug from_environ with_default Text
 If debug is 1
     Show "DEBUG.debug: " debug
 End_If
 
-# ________DESCRIPTION________
+# ________DESCRIPTION
 Text = "translate inlang to outlang eg: \n python sol.py -t -r -e -m whisol.sol"
 Set_variable description to Text
 If debug is 1
     Show "DESCRIPTION: " description
 End_If
 
-# ________CONTROL ________
+# ________CONTROL 
 Text = 1
 Set_variable control to Text
 If debug is 1
     Show "CONTROL.control: " control
 End_If
 
-# ________CODES________
+# ________CODES
 
 Text = "sk-"
 Set_variable OPENAI_API_KEY from_environ
@@ -30,7 +30,7 @@ Set_variable GOOGLE_CSE_ID from_environ
 Text = "__xi_api_key__"
 Set_variable XI_API_KEY from_environ
 
-# ________LANGS________
+# ________LANGS
 
 Text = "spanish"
 Set_variable inlang from_environ with_default Text
@@ -43,7 +43,7 @@ If debug is 1
     Show "LANGS.outlang: " outlang
 End_If
 
-# ________MOCK________
+# ________MOCK
 
 Text = 0
 Set_variable mock from_environ with_default Text
@@ -56,21 +56,31 @@ If debug is 1
     Show "MOCK.mockResponse: " mockResponse
 End_If
 
-# ________QUESTION________
+# ________QUESTION
 
 Text = "Where is Rachael Tyrell ?"
 Set_variable defaultQuestion to Text
 
-# if questionOnMic, ask user for question on mic
-Text = 1
-Set_variable questionOnMic to Text
-
 If debug is 1
     Show "QUESTION.defaultQuestion: " defaultQuestion
-    Show "QUESTION.questionOnMic: " questionOnMic
 End_If
 
-# ________ELEVEN ________
+
+# ________AUDIO
+
+Text = 0
+Set_variable outaudio from_environ with_default Text
+
+Text = 1
+Set_variable inaudio from_environ with_default Text
+
+If debug is 1
+    Show "AUDIO.outaudio: " outaudio
+    Show "AUDIO.inaudio: " inaudio
+End_If
+
+
+# ________ELEVEN 
 
 Text = ""
 Set_variable XI_VOICE_ID to Text
@@ -107,26 +117,26 @@ If debug is 1
     Show "ELEVEN.XI_VOICE_ID: " XI_VOICE_ID
 End_If
 
-# ________RECORD________
+# ________RECORD
 
-# if questionOnMic, get audioFile with recorded user question
+# if inaudio, get audioFile with recorded user question
 
-If questionOnMic is 1
+If inaudio is 1
     Recorded_Audio = Record_audio ({"Audio_Quality": "Normal", "Start_Recording": "On_Tap", "Finish_Recording": "On_Tap"})
     Set_variable audioFile to Recorded_Audio
-End_If
 
-If debug is 1
-    Show "RECORD.audioFile: " audioFile
-End_If
+    If debug is 1
+        Show "RECORD.audioFile: " audioFile
+    End_If
 
-# ________WHISPER get transliteration________
+End_If
+# ________WHISPER get transliteration
 
 # initialize scribedText with defaultQuestion
 Set_variable scribedText to defaultQuestion
 
 # if recorded question, transliterate voice from audioFile
-If questionOnMic is 1
+If inaudio is 1
 
     Set_variable url to f"https://api.openai.com/v1/audio/transcriptions"
 
@@ -167,7 +177,7 @@ If debug is 1
 End_If
 
 
-# ________OPENAI respond________
+# ________OPENAI respond
 
 # initialize userQuery with scribedText
 Set_variable userQuery to scribedText
@@ -233,7 +243,7 @@ If debug is 1
     Show "OPENAI.response: " response
 End_If
  
-# ________ELEVEN speak scribed________
+# ________ELEVEN speak scribed
 
 # initializa XI_TEXT with openai response
 Set_variable XI_TEXT to response
@@ -242,7 +252,7 @@ If debug is 1
 End_If 
 
 # if we have found a voice id from the voice name
-If XI_VOICE_ID has_any_value
+If outaudio has_any_value
 
     TEXT = {
         "text": XI_TEXT,
@@ -297,6 +307,6 @@ If XI_VOICE_ID has_any_value
     Play_sound ({"Sound_File": soundFile})
 
 Otherwise
-    Show XI_VOICE_NAME " is not recognized as a XI voice"
+    Show XI_TEXT
 End_If
 

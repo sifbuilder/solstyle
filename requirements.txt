@@ -1,1 +1,7 @@
-pandas
+
+pynput
+pyttsx3
+requests
+pygame
+sounddevice
+scipy
